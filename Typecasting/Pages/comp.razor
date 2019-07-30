@@ -1,0 +1,24 @@
+﻿@using Typecasting
+@using System.Threading.Tasks;
+
+@inherits Base;
+
+<input id="gencomp" type="text" />
+
+
+
+@code {
+
+    [Parameter]
+    public EventCallback<ChangeEventArgs> ValueChange {
+        get { return (EventCallback<ChangeEventArgs>)this.GetEvent("change"); }
+        set { this.SetEvent<ChangeEventArgs>("change", value); }
+    }
+
+    public async Task<string> DummyCall()
+    {
+        // dummy async action method to show case the issue
+        return  await Task.Run(() => { return "data"; } );
+    }
+
+}

@@ -1,0 +1,19 @@
+﻿@page "/"
+
+<comp @ref="instance" ValueChange="changeEvent"></comp>
+
+
+@code {
+
+    comp instance;
+
+    public async void changeEvent(ChangeEventArgs args)
+    {
+        // setting this value in argument is worked properly 
+        args.value = "this is blazor callback value";
+        string data = await instance.DummyCall();
+        // setting this value after an callback is not working properly. this is not reflected in textbox.
+        args.value = "this is after async method call value";
+    }
+
+}
