@@ -13,6 +13,8 @@ This is the sample to disclose the issue in type casting.
 
 1. How to cast the `EventCallback<T>` without knowing it T type statically but having it as variable storage and then invoke the function handler. 
 
+2. We used Task run to trigger the Generic invoke method. but error throws from blazor stated that `Current thread is differ than ui-rendered thread` from `stateHasChanged` method. 
+
 
 ### Expected
 
